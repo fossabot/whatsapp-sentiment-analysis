@@ -22,6 +22,20 @@ class ParseService {
 
 	    }
     }
+
+    splitLine(line){
+    	/*
+    		Input: "03/12/2017, 13:14 - Sender: Message"
+			Return:
+				line[0]: 03/12/2017
+				line[1]: 13:14
+				line[2]: Sender
+				line[3]: Message
+    	*/
+    	var separators = ['\\\,', ' - ', ': '];
+    	return line.split(new RegExp(separators.join('|'),'g'));
+    }
+
 }
 
 module.exports = new ParseService();
