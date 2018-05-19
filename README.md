@@ -1,2 +1,2 @@
 # whatsapp-sentiment-analysis
-Sentimental Analysis of WhatsApp data using Google Cloud NLP
+Sentimental Analysis of WhatsApp Data
