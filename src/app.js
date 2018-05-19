@@ -5,6 +5,12 @@ import bodyParser from 'body-parser';
 import routes from './routes';
 
 const app = express();
+
+var multer  = require('multer');
+app.use(multer({
+  dest: path.join(__dirname, '../uploads/')
+}).any());
+
 app.disable('x-powered-by');
 
 app.use(logger('dev', {
@@ -38,5 +44,6 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
       message: err.message
     });
 });
+
 
 export default app;
