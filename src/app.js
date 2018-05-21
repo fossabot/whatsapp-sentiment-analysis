@@ -4,6 +4,7 @@ import logger from 'morgan';
 import bodyParser from 'body-parser';
 import routes from './routes';
 
+const DBService = require('../services/dbService');
 const app = express();
 
 var multer  = require('multer');
@@ -45,5 +46,6 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
     });
 });
 
+DBService.initDB();
 
 export default app;
