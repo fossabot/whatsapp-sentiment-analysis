@@ -25,6 +25,9 @@ class ChatService {
 	    		tmp = line;
 	    		var date = line[1], time = line[2],
 		  	 	name = line[3], message = line[4];
+		  	 	if(message == '<Media omitted>'){
+		  	 		continue;
+		  	 	}
 		      	DBService.createRecord(name, date, time, message, sentiment.analyze(message).score)
 	    	}else if(reg2.test(line)){
 	    		/*
