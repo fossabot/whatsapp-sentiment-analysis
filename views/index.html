@@ -20,8 +20,31 @@
   <![endif]-->
 
   <h1>Whatsapp Sentiment Analysis</h1>
-  <h2>Drag Your WhatsApp Record Here.</h2>
-  <form action="/upload" class="dropzone"></form>
+  <% if (result !== null && result.length > 0) { %>
+    <div>
+         <h1>Result</h1>
+         <table>
+            <tr>
+              <th>Name</th>
+              <th>Num Of Messages</th>
+              <th>Sentiment Score</th>
+              <th>Avg. Length</th>
+            </tr>
+          <% result.forEach(function(res) { %>
+            <tr>
+              <td><%= res.name%> </td>
+              <td><%= res.numOfMessages%> </td>
+              <td><%= res.sentimentScore%> </td>
+              <td><%= res.avgLength%> </td>
+            </tr>
+          <% }); %>
+           
+        </table>
+    </div>
+  <% } else { %>
+    <h2>Drag Your WhatsApp Record Here.</h2>
+    <form action="/upload" class="dropzone"></form>
+  <% } %>
 </body>
 
 </html>
