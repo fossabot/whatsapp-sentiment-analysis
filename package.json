@@ -31,7 +31,6 @@
     "babel-preset-env": "^1.6.1",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
-    "drag-drop": "^4.1.0",
     "ejs": "^2.6.1",
     "express": "^4.16.2",
     "fs": "0.0.1-security",
