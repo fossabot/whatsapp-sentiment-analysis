@@ -46,6 +46,6 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
     });
 });
 
-DBService.initDB();
+DBService.initTable();
 
 export default app;
