@@ -4,7 +4,7 @@ var Sentiment = require('sentiment');
 var sentiment = new Sentiment();
 
 class ChatService {
-    process(data){
+    process(data, callback){
     	var lines = data.split('\n');
     	var reg1 = /(.{10}), (.{5}) - (.*?): (.*)/;
     	var reg2 = /(.{10}), (.{5}) - (.*)/;
@@ -46,6 +46,18 @@ class ChatService {
 	    		DBService.createRecord(name, date, time, message, sentiment.analyze(message).score)
 	    	}
 	    }
+	    callback();
+    }
+
+    getAnalysisResult(callback){
+    	console.log("getting AnalysisResult....")
+    	DBService.getResult().then((result) => {
+    		console.log("triggering callback")
+    		callback(result)
+    	}).catch((err) => {
+	      console.log('Error: ')
+	      console.log(JSON.stringify(err))
+	    });
     }
 }
 
