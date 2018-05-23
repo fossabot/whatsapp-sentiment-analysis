@@ -5,6 +5,12 @@ var Sentiment = require('sentiment');
 var sentiment = new Sentiment();
 
 class ChatService {
+	preprocess(callback){
+		return DBService.emptyTable().then(function(){
+			callback();
+		});
+	}
+
     process(data){
     	return new Promise(function(resolve, reject) {
 	    	var lines = data.split('\n');
@@ -53,7 +59,7 @@ class ChatService {
     }
 
     getAnalysisResult(callback){
-    	DBService.getResult().then((result) => {
+    	return DBService.getResult().then((result) => {
     		callback(result)
     	}).catch((err) => {
 	      console.log(JSON.stringify(err))
