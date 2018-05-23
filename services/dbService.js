@@ -9,8 +9,12 @@ class DBService {
 		this.repo = new Repository(dao)
 	}
 
-	initDB(){
+	initTable(){
 		return this.repo.createTable();
+	}
+
+	emptyTable(){
+		return this.repo.emptyTable();
 	}
 
 	createRecord(name, date, time, message, sentimentScore){
